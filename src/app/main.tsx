@@ -1,17 +1,11 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+// app/main.tsx  (yoki src/main.tsx)
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import { Providers } from '@/app/providers'
+import '@/app/styles/globals.css'
 
-import { App } from './App'
-import './styles/globals.css'
-
-const rootElement = document.getElementById('root')
-
-if (!rootElement) {
-  throw new Error('Root element "#root" not found in index.html')
-}
-
-createRoot(rootElement).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
+    <Providers />
+  </React.StrictMode>
 )
