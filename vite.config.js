@@ -11,4 +11,18 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
+  server: {
+    proxy: {
+      '/api': {
+        target: 'https://adetal-ff-production.up.railway.app',
+        changeOrigin: true,
+        secure: true,
+      },
+      '/uploads': {
+        target: 'https://adetal-ff-production.up.railway.app',
+        changeOrigin: true,
+        secure: true,
+      },
+    },
+  },
 })

@@ -15,13 +15,20 @@ import { AuthLayout } from '@/widgets/auth-layout/ui/AuthLayout'
 // Pages (lazy — har bir sahifa kerak bo'lganda yuklanadi)
 import { lazy } from 'react'
 
-const FeedPage     = lazy(() => import('@/pages/feed'))
-const ExplorePage  = lazy(() => import('@/pages/explore'))
-const ProfilePage  = lazy(() => import('@/pages/profile'))
+const FeedPage = lazy(() => import('@/pages/feed'))
+const SearchPage = lazy(() => import('@/pages/search'))
+const ExplorePage = lazy(() => import('@/pages/explore'))
+const ProfilePage = lazy(() => import('@/pages/profile'))
 const SettingsPage = lazy(() => import('@/pages/settings'))
-const LoginPage    = lazy(() => import('@/pages/login'))
+const LoginPage = lazy(() => import('@/pages/login'))
 const RegisterPage = lazy(() => import('@/pages/register'))
 const NotFoundPage = lazy(() => import('@/pages/not-found'))
+// 👇 НОВЫЙ ИМПОРТ
+const MessagesPage = lazy(() => import('@/pages/messages'))
+const HashtagPage = lazy(() => import('@/pages/hashtag'))
+const PostPage = lazy(() => import('@/pages/post'))
+const EditPostPage = lazy(() => import('@/pages/edit-post'))
+const ReelsPage = lazy(() => import('@/pages/reels'))
 
 export const router = createBrowserRouter([
   // ═══════════════════════════════════════
@@ -33,10 +40,16 @@ export const router = createBrowserRouter([
       {
         element: <MainLayout />,     // ← Navbar + BottomNav bor
         children: [
-          { path: PATHS.FEED,     element: <FeedPage /> },
-          { path: PATHS.EXPLORE,  element: <ExplorePage /> },
-          { path: PATHS.PROFILE,  element: <ProfilePage /> },
+          { path: PATHS.FEED, element: <FeedPage /> },
+          { path: PATHS.SEARCH, element: <SearchPage /> },
+          { path: PATHS.EXPLORE, element: <ExplorePage /> },
+          { path: PATHS.PROFILE, element: <ProfilePage /> },
           { path: PATHS.SETTINGS, element: <SettingsPage /> },
+          { path: PATHS.MESSAGES, element: <MessagesPage /> },
+          { path: PATHS.HASHTAG, element: <HashtagPage /> },
+          { path: PATHS.POST, element: <PostPage /> },
+          { path: PATHS.EDIT_POST, element: <EditPostPage /> },
+          { path: PATHS.REELS, element: <ReelsPage /> },
         ],
       },
     ],
@@ -51,7 +64,7 @@ export const router = createBrowserRouter([
       {
         element: <AuthLayout />,     // ← Oq markazlashgan layout
         children: [
-          { path: PATHS.LOGIN,    element: <LoginPage /> },
+          { path: PATHS.LOGIN, element: <LoginPage /> },
           { path: PATHS.REGISTER, element: <RegisterPage /> },
         ],
       },
